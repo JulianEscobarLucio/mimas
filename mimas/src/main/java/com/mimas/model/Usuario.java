@@ -10,8 +10,8 @@ public class Usuario {
     private String email;
     private String pregunta;
     private String respuesta;
-    private String contraseña;
-    private String confirmarContraseña;
+    private String contrasena;
+    private String confirmarContrasena;
     
     
 
@@ -79,20 +79,20 @@ public class Usuario {
         this.respuesta = respuesta;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
-    public String getConfirmarContraseña() {
-        return confirmarContraseña;
+    public String getConfirmarContrasena() {
+        return confirmarContrasena;
     }
 
-    public void setConfirmarContraseña(String confirmarContraseña) {
-        this.confirmarContraseña = confirmarContraseña;
+    public void setConfirmarContrasena(String confirmarContrasena) {
+        this.confirmarContrasena = confirmarContrasena;
     }
 
     public String getNombre1() {

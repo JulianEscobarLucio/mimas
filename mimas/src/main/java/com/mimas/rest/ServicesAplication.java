@@ -15,6 +15,7 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import com.google.gson.Gson;
 import com.mimas.crud.CrudInterface;
+import com.mimas.crud.Login;
 import com.mimas.crud.UsuarioCrud;
 import com.mimas.model.Usuario;
 
@@ -66,6 +67,37 @@ public class ServicesAplication {
             return Response.serverError()
                     .entity(jo).build();
         }
-    }  
+    } 
+    
+    
+    @POST
+    @Path("/login") 
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(Usuario usuario) throws JSONException  {
+        JSONObject jo = new JSONObject();    
+        try {
+                  
+            crud = new Login();
+            boolean respuesta = (boolean) crud.consultar(usuario);
+            if(respuesta){  
+               jo.put("codRespuesta", "200");
+               jo.put("respuesta", "Usuario valido");
+            }else{
+               jo.put("codRespuesta", "201");
+               jo.put("respuesta", "Usuario no valido");   
+            };           
+            
+            JSONArray ja = new JSONArray();
+            ja.put(jo);
+            return Response.status(200).entity(ja).build();
+        } catch (Exception e) {
+            jo.put("codRespuesta", "500");
+            jo.put("respuesta", "Eroro interno");
+            e.printStackTrace();
+            return Response.serverError()
+                    .entity(jo).build();
+        }
+    }
 
 }
