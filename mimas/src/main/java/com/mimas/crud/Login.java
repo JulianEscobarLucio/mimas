@@ -32,7 +32,7 @@ public class Login implements CrudInterface {
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
               respuesta = true;
-              continue;
+              break;
         }        
         preparedStatement.close();
         con.close();        

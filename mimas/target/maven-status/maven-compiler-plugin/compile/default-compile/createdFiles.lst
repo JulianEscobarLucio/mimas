@@ -3,3 +3,4 @@ com\mimas\crud\CrudInterface.class
 com\mimas\rest\ServicesAplication.class
 com\mimas\crud\UsuarioCrud.class
 com\mimas\util\conexionDB.class
+com\mimas\crud\Login.class

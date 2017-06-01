@@ -45,8 +45,7 @@ public class ServicesAplication {
     @Produces(MediaType.APPLICATION_JSON)
     public Response regisrtrarUsuario(Usuario usuario) throws JSONException  {
         JSONObject jo = new JSONObject();    
-        try {
-                  
+        try {                  
             crud = new UsuarioCrud();
             int respueata = crud.insertar(usuario);
             if(respueata==1){  
