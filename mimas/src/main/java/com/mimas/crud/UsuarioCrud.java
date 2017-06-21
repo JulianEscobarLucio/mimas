@@ -29,11 +29,9 @@ public class UsuarioCrud implements CrudInterface {
         preparedStatement.setString(7, usuario.getEmail());
         preparedStatement.setString(8, usuario.getPregunta());
         preparedStatement.setString(9, usuario.getRespuesta());
-        preparedStatement.setString(10, usuario.getContrasena());
-        preparedStatement.setString(11, usuario.getConfirmarContrasena());
+        preparedStatement.setString(10, usuario.getContraseña());
+        preparedStatement.setString(11, usuario.getConfirmarContraseña());
         respuesta = preparedStatement .executeUpdate();
-        preparedStatement.close();
-        con.close();        
         // TODO Auto-generated method stub
         return respuesta;
     }

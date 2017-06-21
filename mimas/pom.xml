@@ -20,6 +20,11 @@
 			<url>http://download.java.net/maven/2/</url>
 			<layout>default</layout>
 		</repository>
+	 <repository>
+	  <id>unknown-jars-temp-repo</id>
+	  <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+	  <url>file:${project.basedir}/lib</url>
+	 </repository>
 	</repositories> 
 	<dependencies>
 		<dependency>
@@ -48,6 +53,11 @@
 		  <artifactId>mysql-connector-java</artifactId>
 		  <version>5.1.6</version>
 	</dependency>
+	 <dependency>
+	  <groupId>unknown.binary</groupId>
+	  <artifactId>javax.ws.rs-api-2.0</artifactId>
+	  <version>SNAPSHOT</version>
+	 </dependency>
 	</dependencies>
  
 	<build>
