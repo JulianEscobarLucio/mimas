@@ -4,7 +4,7 @@ public class Fundacion {
     private String identificacion;
     private String razonSocial;
     private String telefonoFijo;
-    private String telefonomovil;
+    private String telefonoMovil;
     private String email;
     private String direccion;
     private String usuario;
@@ -36,12 +36,12 @@ public class Fundacion {
         this.telefonoFijo = telefonoFijo;
     }
 
-    public String getTelefonomovil() {
-        return telefonomovil;
+    public String getTelefonoMovil() {
+        return telefonoMovil;
     }
 
-    public void setTelefonomovil(String telefonomovil) {
-        this.telefonomovil = telefonomovil;
+    public void setTelefonoMovil(String telefonoMovil) {
+        this.telefonoMovil = telefonoMovil;
     }
 
     public String getEmail() {
