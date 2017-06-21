@@ -1,7 +1,10 @@
 C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\crud\Login.java
+C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\model\Rol.java
 C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\util\conexionDB.java
 C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\crud\CrudInterface.java
 C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\model\Usuario.java
+C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\rest\rolServices.java
 C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\rest\usuarioServices.java
+C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\crud\RolCrud.java
 C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\crud\UsuarioCrud.java
 C:\Users\julian.escobar\workspace\Servicios_Mimas\mimas\src\main\java\com\mimas\rest\securityServices.java
