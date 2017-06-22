@@ -76,7 +76,7 @@ public class FundacionCrud implements CrudInterface {
         PreparedStatement preparedStatement = null ;
         
         String sql = "Update fundaciones set  identificacion =?, razonSocial =?, telefonoFijo =?, "
-        		+ "telefonoMovil =?, email =?, direccion =?, usuario =?, tipoEntidad =?  where idfundacion = ?";    
+        		+ "telefonoMovil =?, email =?, direccion =?, usuario =?, tipoEntidad =?  where identificacion = ?";    
         
         
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -88,7 +88,7 @@ public class FundacionCrud implements CrudInterface {
         preparedStatement.setString(6, fundacion.getDireccion());
         preparedStatement.setString(7, fundacion.getUsuario());
         preparedStatement.setString(8, fundacion.getTipoEntidad());
-        
+        preparedStatement.setString(9, fundacion.getIdentificacion());
         
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();

@@ -206,11 +206,11 @@ public class fundacionServices {
             
             if(respuesta == 1){  
                jo.put("codRespuesta", "200");
-               jo.put("respuesta", "Fundacion eliminada");
+               jo.put("respuesta", "Fundación eliminada");
                
             }else{
                jo.put("codRespuesta", "201");
-               jo.put("respuesta", "Fundacion no eliminada");   
+               jo.put("respuesta", "Fundación no eliminada");   
             };          
             
            
@@ -220,7 +220,7 @@ public class fundacionServices {
         } catch (Exception e) {
         	
             jo.put("codRespuesta", "500");
-            jo.put("respuesta", "Fundacion no eliminada, error interno");
+            jo.put("respuesta", "Fundación no eliminada, error interno");
             e.printStackTrace();
             return Response.serverError()
                     .entity(jo).build();
