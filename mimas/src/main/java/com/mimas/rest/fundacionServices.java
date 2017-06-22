@@ -18,11 +18,12 @@ import com.mimas.crud.FundacionCrud;
 import com.mimas.model.Fundacion;
 
 
+
+
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @ApplicationPath("rest")
 @Path("/fundacionServices")
-
 public class fundacionServices {
     
     private Gson gson ;

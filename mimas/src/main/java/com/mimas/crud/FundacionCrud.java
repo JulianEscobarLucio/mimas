@@ -18,7 +18,7 @@ public class FundacionCrud implements CrudInterface {
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "insert into fundaciones (identificacion, razonSocial, telefonoFijo, telefonoMovil, email, direccion, usuario, tipoEntidad)"
-                + " values (?,?,?,?,?,?,?,?,?,?,?) ";
+                + " values (?,?,?,?,?,?,?,?) ";
         
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, fundacion.getIdentificacion());
