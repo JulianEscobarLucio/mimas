@@ -24,7 +24,7 @@ public class Login implements CrudInterface {
         boolean respuesta = false;
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "select nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, email, pregunta, respuesta, contraseña, confirmarcontraseña"
+        String sql = "select nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, email, pregunta, respuesta, contraseña"
                 + " from usuario where email = ? and contraseña = ? ";
         preparedStatement  = con.prepareStatement(sql);
         preparedStatement.setString(1, usuario.getEmail());
