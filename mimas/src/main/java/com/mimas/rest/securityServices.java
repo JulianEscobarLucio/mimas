@@ -34,7 +34,7 @@ public class securityServices {
         JSONObject jo = new JSONObject();    
         try {                  
             crud = new Login();
-            boolean respuesta = (boolean) crud.consultar(usuario);
+             boolean respuesta = (boolean) crud.consultar(usuario);
             if(respuesta){  
                jo.put("codRespuesta", "200");
                jo.put("respuesta", "Usuario valido");
