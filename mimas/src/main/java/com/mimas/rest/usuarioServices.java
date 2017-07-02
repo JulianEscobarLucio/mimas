@@ -81,11 +81,15 @@ public class usuarioServices {
                 jo.put("respuesta", "Faltan datos obligatorios"); 
                 ja.put(jo);
                 return Response.status(200).entity(ja).build();
-            } */
-
-               
-                        
+            } */                        
             crud = new UsuarioCrud();
+            Usuario respuestaUsuario = new Usuario();         
+            respuestaUsuario = (Usuario) crud.consultar(usuario);
+            if(respuestaUsuario.getNombre1() != null){  
+               jo.put("codRespuesta", "202");
+               ja.put(jo);
+               return Response.status(200).entity(ja).build();
+            }
             int respueata = crud.insertar(usuario);
             if(respueata==1){  
                jo.put("codRespuesta", "200");
