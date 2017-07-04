@@ -11,7 +11,8 @@ public class Usuario {
     private String pregunta;
     private String respuesta;
     private String contrasena;
-    private String confirmarContrasena;
+    private String rol;
+    
     public String getNombre1() {
         return nombre1;
     }
@@ -72,12 +73,13 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    public String getConfirmarContrasena() {
-        return confirmarContrasena;
+    public String getRol() {
+        return rol;
     }
-    public void setConfirmarContrasena(String confirmarContrasena) {
-        this.confirmarContrasena = confirmarContrasena;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
+
     
     
 
