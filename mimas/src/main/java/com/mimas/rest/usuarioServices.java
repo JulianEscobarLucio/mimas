@@ -135,7 +135,8 @@ public class usuarioServices {
                jo.put("pregunta", respuestaUsuario.getPregunta());
                jo.put("respuesta", respuestaUsuario.getRespuesta());
                jo.put("contrasena", respuestaUsuario.getContrasena()); 
-               jo.put("rol", respuestaUsuario.getRol());  
+               jo.put("rol", respuestaUsuario.getRol()); 
+               jo.put("estado", respuestaUsuario.getEstado());  
             }else{
                jo.put("codRespuesta", "201");
                jo.put("respuesta", "Usuario no encontrado");   

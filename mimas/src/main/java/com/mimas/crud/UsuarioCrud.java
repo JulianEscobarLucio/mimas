@@ -18,7 +18,7 @@ public class UsuarioCrud implements CrudInterface {
         Usuario usuario = (Usuario) request;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "insert into usuario (nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, email, pregunta, respuesta, contraseña, rol)"
+        String sql = "insert into usuario (nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, email, pregunta, respuesta, contraseña, rol,estado)"
                 + " values (?,?,?,?,?,?,?,?,?,?,?) ";
         
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -32,7 +32,8 @@ public class UsuarioCrud implements CrudInterface {
         preparedStatement.setString(8, usuario.getPregunta());
         preparedStatement.setString(9, usuario.getRespuesta());
         preparedStatement.setString(10, usuario.getContrasena());
-        preparedStatement.setString(11, usuario.getRol());
+        preparedStatement.setString(11, "4");
+        preparedStatement.setString(12, "1");
         respuesta = preparedStatement .executeUpdate();
         preparedStatement.close();
         con.close();        
@@ -46,7 +47,7 @@ public class UsuarioCrud implements CrudInterface {
         Usuario usuario = (Usuario) consultar;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "Select nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, pregunta, respuesta, contraseña, rol from usuario where email = ?";
+        String sql = "Select nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, pregunta, respuesta, contraseña, rol, estado from usuario where email = ?";
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, usuario.getEmail());        
         respuesta = preparedStatement.executeQuery();
@@ -62,6 +63,7 @@ public class UsuarioCrud implements CrudInterface {
             usuarioRespuesta.setRespuesta(respuesta.getString("respuesta"));
             usuarioRespuesta.setContrasena(respuesta.getString("contraseña")); 
             usuarioRespuesta.setRol(respuesta.getString("rol"));
+            usuarioRespuesta.setEstado(respuesta.getString("estado"));
         }
         preparedStatement.close();
         con.close();        
@@ -76,7 +78,7 @@ public class UsuarioCrud implements CrudInterface {
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "Update usuario set  nombre1 = ?, nombre2 = ?, apellido1 = ?, apellido2  = ?,  telefonofijo = ?"
-                +", telefonomovil = ?, pregunta = ?, respuesta = ?, contraseña = ?, rol = ?  where email = ?"; 
+                +", telefonomovil = ?, pregunta = ?, respuesta = ?, contraseña = ?, rol = ?, estado = ?  where email = ?"; 
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);      
         preparedStatement.setString(1, usuario.getNombre1());
         preparedStatement.setString(2, usuario.getNombre2());
@@ -88,7 +90,8 @@ public class UsuarioCrud implements CrudInterface {
         preparedStatement.setString(8, usuario.getRespuesta());
         preparedStatement.setString(9, usuario.getContrasena());  
         preparedStatement.setString(10, usuario.getRol());
-        preparedStatement.setString(11, usuario.getEmail());
+        preparedStatement.setString(11, usuario.getEstado());
+        preparedStatement.setString(12, usuario.getEmail());       
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();        

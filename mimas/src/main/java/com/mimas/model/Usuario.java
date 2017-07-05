@@ -12,6 +12,7 @@ public class Usuario {
     private String respuesta;
     private String contrasena;
     private String rol;
+    private String estado;
     
     public String getNombre1() {
         return nombre1;
@@ -78,6 +79,12 @@ public class Usuario {
     }
     public void setRol(String rol) {
         this.rol = rol;
+    }
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     
