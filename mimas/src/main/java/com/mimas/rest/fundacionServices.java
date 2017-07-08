@@ -51,7 +51,7 @@ public class fundacionServices {
                 return Response.status(200).entity(ja).build();
             }
         	
-            if(fundacion.getTelefonoFijo() == null || fundacion.getTelefonoFijo().equals("") && 
+            if((fundacion.getTelefonoFijo() == null || fundacion.getTelefonoFijo().equals("")) && 
                     (fundacion.getTelefonoMovil() == null || fundacion.getTelefonoMovil().equals("") )){
                 jo.put("codRespuesta", "202");
                 jo.put("respuesta", "Faltan datos obligatorios"); 
