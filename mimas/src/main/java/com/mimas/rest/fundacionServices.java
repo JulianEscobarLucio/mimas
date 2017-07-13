@@ -1,5 +1,7 @@
 package com.mimas.rest;
 
+import java.lang.reflect.Field;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -76,18 +78,35 @@ public class fundacionServices {
             
               
             crud = new FundacionCrud();
-            int respueata = crud.insertar(fundacion);
-            if(respueata==1){  
-               jo.put("codRespuesta", "200");
-               jo.put("respuesta", "Fundación registrada");
-            }else{
-               jo.put("codRespuesta", "201");
-               jo.put("respuesta", "Fundación no registrada");   
-            };          
             
-           
-            ja.put(jo);
-            return Response.status(200).entity(ja).build();
+            
+            Fundacion funRespuesta = new Fundacion();
+            funRespuesta = (Fundacion) crud.consultar(fundacion);
+            
+            if (funRespuesta.getIdentificacion() == null){
+            	
+            	int respuesta = crud.insertar(fundacion);
+                if(respuesta==1){  
+                   jo.put("codRespuesta", "200");
+                   jo.put("respuesta", "Fundación registrada");
+                }else{
+                   jo.put("codRespuesta", "201");
+                   jo.put("respuesta", "Fundación no registrada");   
+                };          
+                
+               
+                ja.put(jo);
+                return Response.status(200).entity(ja).build();
+            	
+            }
+            else{
+            	
+            	jo.put("codRespuesta", "204");
+                jo.put("respuesta", "Fundación ya se encuentra registrada");
+                ja.put(jo);
+                return Response.status(200).entity(ja).build();
+                
+            } 
             
             
         } catch (Exception e) {
