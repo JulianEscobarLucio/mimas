@@ -1,8 +1,24 @@
 com\mimas\model\Usuario.class
+<<<<<<< HEAD
 com\mimas\rest\usuarioServices.class
 com\mimas\rest\ServicesAplication.class
+=======
+com\mimas\rest\mascotaServices.class
+com\mimas\rest\usuarioServices.class
+com\mimas\rest\fundacionServices.class
+com\mimas\crud\FundacionCrud.class
+com\mimas\model\Fundacion.class
+>>>>>>> refs/heads/develop
 com\mimas\crud\CrudInterface.class
 com\mimas\rest\securityServices.class
 com\mimas\crud\UsuarioCrud.class
 com\mimas\util\conexionDB.class
 com\mimas\crud\Login.class
+<<<<<<< HEAD
+=======
+com\mimas\crud\RolCrud.class
+com\mimas\model\Mascota.class
+com\mimas\model\Rol.class
+com\mimas\crud\MascotaCrud.class
+com\mimas\rest\rolServices.class
+>>>>>>> refs/heads/develop

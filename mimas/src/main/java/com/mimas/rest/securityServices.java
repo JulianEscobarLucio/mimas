@@ -15,6 +15,7 @@ import org.codehaus.jettison.json.JSONObject;
 import com.google.gson.Gson;
 import com.mimas.crud.CrudInterface;
 import com.mimas.crud.Login;
+import com.mimas.crud.UsuarioCrud;
 import com.mimas.model.Usuario;
 
 @Consumes(MediaType.APPLICATION_JSON)
@@ -35,9 +36,14 @@ public class securityServices {
         try {                  
             crud = new Login();
             boolean respuesta = (boolean) crud.consultar(usuario);
-            if(respuesta){  
+            Usuario miUsuario;
+            if(respuesta){ 
+               crud = new UsuarioCrud();
+               miUsuario = (Usuario) crud.consultar(usuario);
                jo.put("codRespuesta", "200");
                jo.put("respuesta", "Usuario valido");
+               jo.put("nombre1", miUsuario.getNombre1());
+               jo.put("apellido1", miUsuario.getApellido1());
             }else{
                jo.put("codRespuesta", "201");
                jo.put("respuesta", "Usuario no valido");   
