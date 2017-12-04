@@ -9,6 +9,7 @@ public class Fundacion {
     private String direccion;
     private String usuario;
     private String tipoEntidad;
+    private String estadoEntidad;
 
     
     //GETTER Y SETTER
@@ -74,6 +75,20 @@ public class Fundacion {
 
     public void setTipoEntidad(String tipoEntidad) {
         this.tipoEntidad = tipoEntidad;
+    }
+
+    /**
+     * @return the estadoEntidad
+     */
+    public String getEstadoEntidad() {
+        return estadoEntidad;
+    }
+
+    /**
+     * @param estadoEntidad the estadoEntidad to set
+     */
+    public void setEstadoEntidad(String estadoEntidad) {
+        this.estadoEntidad = estadoEntidad;
     }
 
 

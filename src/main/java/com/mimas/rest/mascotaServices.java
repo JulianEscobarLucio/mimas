@@ -136,6 +136,7 @@ public class mascotaServices {
                    jo.put("colorOjos", respuestaMascota.getPersonalidad());
                    jo.put("personalidad", respuestaMascota.getEstadoSalud());
                    jo.put("estadoSalud", respuestaMascota.getEstadoSalud());
+                   jo.put("imagen", respuestaMascota.getImagen());
                 }else{
                    jo.put("codRespuesta", "201");
                    jo.put("respuesta", "Mascota no encontrada");   

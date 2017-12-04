@@ -18,7 +18,7 @@ public class MascotaCrud implements CrudInterface {
         Mascota mascota = (Mascota) request;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "insert into mascota (Id, Nombre, IdResponsable, Especie, Raza, Genero, Edad, Tamaño, "
+        String sql = "insert into mascota (Id, Nombre, IdResponsable, Especie, Raza, Genero,imagen, Tamaño, "
                 + "Estado, Caracteristicas, FechaN, Señales, Color, Colorojos, Personalidad, EstadoSalud)"
                 + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
         
@@ -29,7 +29,7 @@ public class MascotaCrud implements CrudInterface {
         preparedStatement.setString(4, mascota.getEspecie());
         preparedStatement.setString(5, mascota.getRaza());
         preparedStatement.setString(6, mascota.getGenero());
-        preparedStatement.setString(7, mascota.getEdad());
+        preparedStatement.setString(7, mascota.getImagen());
         preparedStatement.setString(8, mascota.getTamano());
         preparedStatement.setString(9, mascota.getEstado());
         preparedStatement.setString(10, mascota.getCaracteristicas());
@@ -50,7 +50,7 @@ public class MascotaCrud implements CrudInterface {
         Mascota mascota = (Mascota) consultar;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "Select  Nombre, IdResponsable, Especie, Raza, Genero, Edad, Tamaño, "
+        String sql = "Select  Nombre, IdResponsable,Imagen, Especie, Raza, Genero, Tamaño, "
                 + "Estado, Caracteristicas, FechaN, Señales, Color, Colorojos, Personalidad, EstadoSalud from Mascota where Id = ?";       
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, mascota.getId());        
@@ -61,8 +61,7 @@ public class MascotaCrud implements CrudInterface {
             mascotaRespuesta.setIdResponsable(respuesta.getString("IdResponsable"));
             mascotaRespuesta.setEspecie(respuesta.getString("Especie"));
             mascotaRespuesta.setRaza(respuesta.getString("Raza"));
-            mascotaRespuesta.setGenero(respuesta.getString("Genero"));
-            mascotaRespuesta.setEdad(respuesta.getString("Edad"));
+            mascotaRespuesta.setGenero(respuesta.getString("Genero"));  
             mascotaRespuesta.setTamano(respuesta.getString("Tamaño"));
             mascotaRespuesta.setEstado(respuesta.getString("Estado"));
             mascotaRespuesta.setCaracteristicas(respuesta.getString("Caracteristicas"));            
@@ -72,6 +71,7 @@ public class MascotaCrud implements CrudInterface {
             mascotaRespuesta.setColorojos(respuesta.getString("Colorojos"));
             mascotaRespuesta.setPersonalidad(respuesta.getString("Personalidad"));
             mascotaRespuesta.setEstadoSalud(respuesta.getString("EstadoSalud"));
+            mascotaRespuesta.setImagen(respuesta.getString("Imagen"));
         }
         preparedStatement.close();
         con.close();        
@@ -85,7 +85,7 @@ public class MascotaCrud implements CrudInterface {
         Mascota mascota = (Mascota) actualizar;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "update mascota set  Nombre = ?, IdResponsable = ? , Especie = ?, Raza = ?, Genero = ?, Edad= ?, Tamaño= ?, "
+        String sql = "update mascota set  Nombre = ?, IdResponsable = ? , Especie = ?, Raza = ?, Genero = ?, Imagen= ?, Tamaño= ?, "
                 + "Estado = ?, Caracteristicas = ?, FechaN = ?, Señales = ?, Color = ?, Colorojos = ?, Personalidad = ?, EstadoSalud = ? where Id = ?";             
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);      
         preparedStatement.setString(1, mascota.getNombre());
@@ -93,7 +93,7 @@ public class MascotaCrud implements CrudInterface {
         preparedStatement.setString(3, mascota.getEspecie());
         preparedStatement.setString(4, mascota.getRaza());
         preparedStatement.setString(5, mascota.getGenero());
-        preparedStatement.setString(6, mascota.getEdad());
+        preparedStatement.setString(6, mascota.getImagen());
         preparedStatement.setString(7, mascota.getTamano());
         preparedStatement.setString(8, mascota.getEstado());
         preparedStatement.setString(9, mascota.getCaracteristicas());

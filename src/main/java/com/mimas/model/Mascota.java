@@ -8,6 +8,7 @@ public class Mascota {
     private String raza;
     private String genero;
     private String edad;
+    private String imagen;
     private String tamano;
     private String estado;
     private String caracteristicas;
@@ -18,6 +19,7 @@ public class Mascota {
     private String personalidad;
     private String estadoSalud;
     private String id;
+    
     public String getNombre() {
         return nombre;
     }
@@ -113,6 +115,18 @@ public class Mascota {
     }
     public void setId(String id) {
         this.id = id;
+    }
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
     
     

@@ -167,6 +167,7 @@ public class fundacionServices {
                jo.put("direccion", respuesta.getDireccion());
                jo.put("usuario", respuesta.getUsuario());
                jo.put("tipoEntidad", respuesta.getTipoEntidad());
+               jo.put("estadoEntidad", respuesta.getEstadoEntidad());
                
             }else{
                jo.put("codRespuesta", "201");
