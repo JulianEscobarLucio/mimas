@@ -15,6 +15,7 @@ import org.codehaus.jettison.json.JSONObject;
 import com.google.gson.Gson;
 import com.mimas.crud.CrudInterface;
 import com.mimas.crud.Login;
+import com.mimas.crud.UsuarioCrud;
 import com.mimas.model.Usuario;
 
 @Consumes(MediaType.APPLICATION_JSON)
@@ -23,26 +24,30 @@ import com.mimas.model.Usuario;
 @Path("/securityServices")
 public class securityServices {
 
-    private Gson gson ;
-    private CrudInterface crud;    
-    
+    private Gson gson;
+    private CrudInterface crud;
+
     @POST
-    @Path("/login") 
+    @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(Usuario usuario) throws JSONException  {
-        JSONObject jo = new JSONObject();    
-        try {                  
+    public Response login(Usuario usuario) throws JSONException {
+        JSONObject jo = new JSONObject();
+        try {
             crud = new Login();
-             boolean respuesta = (boolean) crud.consultar(usuario);
-            if(respuesta){  
-               jo.put("codRespuesta", "200");
-               jo.put("respuesta", "Usuario valido");
-            }else{
-               jo.put("codRespuesta", "201");
-               jo.put("respuesta", "Usuario no valido");   
-            };           
-            
+            boolean respuesta = (boolean) crud.consultar(usuario);
+            Usuario miUsuario;
+            if (respuesta) {
+                crud = new UsuarioCrud();
+                miUsuario = (Usuario) crud.consultar(usuario);
+                jo.put("codRespuesta", "200");
+                jo.put("respuesta", "Usuario valido");
+                jo.put("nombre1", miUsuario.getNombre1());
+                jo.put("apellido1", miUsuario.getApellido1());
+            } else {
+                jo.put("codRespuesta", "201");
+                jo.put("respuesta", "Usuario no valido");
+            }
             JSONArray ja = new JSONArray();
             ja.put(jo);
             return Response.status(200).entity(ja).build();
@@ -50,8 +55,7 @@ public class securityServices {
             jo.put("codRespuesta", "500");
             jo.put("respuesta", "Eroro interno");
             e.printStackTrace();
-            return Response.serverError()
-                    .entity(jo).build();
+            return Response.serverError().entity(jo).build();
         }
     }
 }
