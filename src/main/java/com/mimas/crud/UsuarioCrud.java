@@ -19,7 +19,7 @@ public class UsuarioCrud implements CrudInterface {
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "insert into usuario (nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, email, pregunta, respuesta, contraseña, rol,estado)"
-                + " values (?,?,?,?,?,?,?,?,?,?,?) ";
+                + " values (?,?,?,?,?,?,?,?,?,?,?,?) ";
         
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, usuario.getNombre1());
