@@ -30,7 +30,6 @@ public class RolCrud implements CrudInterface{
         respuesta = preparedStatement.executeUpdate();
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
@@ -54,7 +53,6 @@ public class RolCrud implements CrudInterface{
         }
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return rolRespuesta;
     }
 
@@ -74,7 +72,6 @@ public class RolCrud implements CrudInterface{
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
@@ -90,7 +87,6 @@ public class RolCrud implements CrudInterface{
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
     

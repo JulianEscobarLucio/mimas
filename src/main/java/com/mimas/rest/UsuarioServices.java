@@ -23,7 +23,7 @@ import com.mimas.model.Usuario;
 @Produces(MediaType.APPLICATION_JSON)
 @ApplicationPath("rest")
 @Path("/usuarioServices")
-public class usuarioServices {
+public class UsuarioServices {
     
     private Gson gson ;
     private CrudInterface crud;

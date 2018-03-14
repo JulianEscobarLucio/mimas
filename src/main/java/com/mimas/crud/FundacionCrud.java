@@ -17,7 +17,7 @@ public class FundacionCrud implements CrudInterface {
         Fundacion fundacion = (Fundacion) request;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "insert into fundaciones (identificacion, razonSocial, telefonoFijo, telefonoMovil, email, direccion, usuario, tipoEntidad, estadoEntidad)"
+        String sql = "insert into fundacion (identificacion, razonSocial, telefonoFijo, telefonoMovil, email, direccion, usuario, tipoEntidad, estadoEntidad)"
                 + " values (?,?,?,?,?,?,?,?,?) ";
         
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -44,7 +44,7 @@ public class FundacionCrud implements CrudInterface {
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "Select identificacion, razonSocial, telefonoFijo, "
-        		+ "telefonoMovil, email, direccion, usuario, estadoEntidad, tipoEntidad from fundaciones where identificacion = ?";  
+        		+ "telefonoMovil, email, direccion, usuario, estadoEntidad, tipoEntidad from fundacion where identificacion = ?";  
         
         
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -77,7 +77,7 @@ public class FundacionCrud implements CrudInterface {
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         
-        String sql = "Update fundaciones set  identificacion =?, razonSocial =?, telefonoFijo =?, "
+        String sql = "Update fundacion set  identificacion =?, razonSocial =?, telefonoFijo =?, "
         		+ "telefonoMovil =?, email =?, direccion =?, usuario =?, tipoEntidad =?, estadoEntidad=?  where identificacion = ?";    
         
         
@@ -108,7 +108,7 @@ public class FundacionCrud implements CrudInterface {
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         
-        String sql = "delete from fundaciones  where identificacion = ?";  
+        String sql = "delete from fundacion  where identificacion = ?";  
         
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);      
         preparedStatement.setString(1, fundacion.getIdentificacion());

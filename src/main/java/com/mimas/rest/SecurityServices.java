@@ -1,7 +1,10 @@
 package com.mimas.rest;
 
+import java.util.Date;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -22,10 +25,19 @@ import com.mimas.model.Usuario;
 @Produces(MediaType.APPLICATION_JSON)
 @ApplicationPath("rest")
 @Path("/securityServices")
-public class securityServices {
+public class SecurityServices {
 
     private Gson gson;
     private CrudInterface crud;
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStartingPage()
+    {
+        String output = "<h1>Hello World!<h1>" +
+                "<p>RESTful Service is running ... <br>Ping @ " + new Date().toString() + "</p><br>";
+        return Response.status(200).entity(output).build();
+    }
 
     @POST
     @Path("/login")

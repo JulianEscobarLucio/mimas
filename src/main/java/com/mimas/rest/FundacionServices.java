@@ -24,7 +24,7 @@ import com.mimas.model.Fundacion;
 @Produces(MediaType.APPLICATION_JSON)
 @ApplicationPath("rest")
 @Path("/fundacionServices")
-public class fundacionServices {
+public class FundacionServices {
     
     private Gson gson ;
     private CrudInterface crud;

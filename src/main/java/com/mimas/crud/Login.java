@@ -14,7 +14,6 @@ public class Login implements CrudInterface {
     
     @Override
     public int insertar(Object request) throws Exception {
-        // TODO Auto-generated method stub
         return 0;
     }
 
@@ -36,19 +35,16 @@ public class Login implements CrudInterface {
         }        
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
     @Override
     public Object actualizar(Object consultar) throws Exception {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public Object eliminar(Object consultar) throws Exception {
-        // TODO Auto-generated method stub
         return null;
     }
     

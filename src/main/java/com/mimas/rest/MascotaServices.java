@@ -25,7 +25,7 @@ import com.mimas.model.Rol;
 @Produces(MediaType.APPLICATION_JSON)
 @ApplicationPath("rest")
 @Path("/Mascotaservices")
-public class mascotaServices {
+public class MascotaServices {
     
     
 

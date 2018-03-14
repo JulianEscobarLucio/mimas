@@ -37,7 +37,6 @@ public class UsuarioCrud implements CrudInterface {
         respuesta = preparedStatement .executeUpdate();
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
@@ -67,7 +66,6 @@ public class UsuarioCrud implements CrudInterface {
         }
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return usuarioRespuesta;
     }
 
@@ -95,7 +93,6 @@ public class UsuarioCrud implements CrudInterface {
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
@@ -111,7 +108,6 @@ public class UsuarioCrud implements CrudInterface {
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 

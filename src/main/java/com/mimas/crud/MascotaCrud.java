@@ -40,7 +40,6 @@ public class MascotaCrud implements CrudInterface {
         preparedStatement.setString(15, mascota.getPersonalidad());
         preparedStatement.setString(16, mascota.getEstadoSalud());
         respuesta = preparedStatement .executeUpdate();
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
@@ -50,13 +49,14 @@ public class MascotaCrud implements CrudInterface {
         Mascota mascota = (Mascota) consultar;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
-        String sql = "Select  Nombre, IdResponsable,Imagen, Especie, Raza, Genero, Tamaño, "
+        String sql = "Select   Nombre, IdResponsable,Imagen, Especie, Raza, Genero, Tamaño, "
                 + "Estado, Caracteristicas, FechaN, Señales, Color, Colorojos, Personalidad, EstadoSalud from Mascota where Id = ?";       
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, mascota.getId());        
         respuesta = preparedStatement.executeQuery();
         Mascota mascotaRespuesta = new Mascota(); 
         while(respuesta.next()){
+        	mascotaRespuesta.setId(mascota.getId());
             mascotaRespuesta.setNombre(respuesta.getString("Nombre"));
             mascotaRespuesta.setIdResponsable(respuesta.getString("IdResponsable"));
             mascotaRespuesta.setEspecie(respuesta.getString("Especie"));
@@ -75,7 +75,6 @@ public class MascotaCrud implements CrudInterface {
         }
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return mascotaRespuesta;
     }
 
@@ -107,7 +106,6 @@ public class MascotaCrud implements CrudInterface {
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
@@ -123,7 +121,6 @@ public class MascotaCrud implements CrudInterface {
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();        
-        // TODO Auto-generated method stub
         return respuesta;
     }
 
