@@ -12,6 +12,6 @@ public interface CrudInterface {
     
     Object eliminar(Object consultar) throws Exception;
     
-    List<Object> listar(Object consultar) throws Exception;
+    List<Object> listar() throws Exception;
 
 }

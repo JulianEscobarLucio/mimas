@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
-import com.mimas.model.Rol;
 import com.mimas.model.Usuario;
 import com.mimas.util.conexionDB;
 
@@ -112,7 +111,7 @@ public class UsuarioCrud implements CrudInterface {
     }
 
 	@Override
-	public List<Object> listar(Object consultar) throws Exception {
+	public List<Object> listar() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

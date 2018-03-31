@@ -122,7 +122,7 @@ public class FundacionCrud implements CrudInterface {
     }
 
 	@Override
-	public List<Object> listar(Object consultar) throws Exception {
+	public List<Object> listar() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -87,9 +88,27 @@ public class AdopcionCrud implements CrudInterface {
 	}
 
 	@Override
-	public List<Object> listar(Object consultar) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Object> listar() throws Exception {
+        ResultSet respuesta;
+        con = conexionDB.getConexion(); 
+        PreparedStatement preparedStatement = null ;
+        String sql = "Select idSolicitud,  usuario, mascota,fecha, nombreadjunto, adjunto, estado from adopcion";       
+        preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        respuesta = preparedStatement.executeQuery();
+        List<Object> listAdopcion = new ArrayList<Object>();
+        Adopcion miadopcion = new Adopcion();
+        while(respuesta.next()){
+        	miadopcion.setUsuario(respuesta.getString("usuario"));
+        	miadopcion.setIdMascota(respuesta.getString("mascota"));
+        	miadopcion.setFecha(respuesta.getDate("fecha"));
+        	miadopcion.setNombreAdjunto(respuesta.getString("nombreadjunto"));
+        	miadopcion.setAdjunto(respuesta.getString("adjunto"));
+        	miadopcion.setEstadoSolicitud(respuesta.getString("estado"));
+        	listAdopcion.add(miadopcion);
+        }
+        preparedStatement.close();
+        con.close();        
+        return listAdopcion;
 	}
 
 }
