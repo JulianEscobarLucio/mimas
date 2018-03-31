@@ -26,10 +26,10 @@ public class AdopcionCrud implements CrudInterface {
 		preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		preparedStatement.setString(1, adopcion.getUsuario());
 		preparedStatement.setString(2, adopcion.getIdMascota());
-		preparedStatement.setDate(3, new java.sql.Date(0L));
+		preparedStatement.setDate(3, new java.sql.Date(adopcion.getFecha().getTime()));
 		preparedStatement.setString(4, adopcion.getNombreAdjunto());
 		preparedStatement.setString(5, adopcion.getAdjunto());
-		preparedStatement.setString(6, "En proceso");
+		preparedStatement.setString(6, adopcion.getEstadoSolicitud());
         respuesta = preparedStatement.executeUpdate();  
         preparedStatement.close();
         con.close();
