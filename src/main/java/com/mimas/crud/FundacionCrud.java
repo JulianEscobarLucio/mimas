@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 import com.mimas.model.Fundacion;
 import com.mimas.util.conexionDB;
@@ -119,6 +120,12 @@ public class FundacionCrud implements CrudInterface {
 
         return respuesta;
     }
+
+	@Override
+	public List<Object> listar(Object consultar) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     
 

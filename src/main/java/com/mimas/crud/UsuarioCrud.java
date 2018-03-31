@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 import com.mimas.model.Rol;
 import com.mimas.model.Usuario;
@@ -20,7 +21,6 @@ public class UsuarioCrud implements CrudInterface {
         PreparedStatement preparedStatement = null ;
         String sql = "insert into usuario (nombre1, nombre2, apellido1, apellido2, telefonofijo, telefonomovil, email, pregunta, respuesta, contraseña, rol,estado)"
                 + " values (?,?,?,?,?,?,?,?,?,?,?,?) ";
-        
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, usuario.getNombre1());
         preparedStatement.setString(2, usuario.getNombre2());
@@ -110,5 +110,11 @@ public class UsuarioCrud implements CrudInterface {
         con.close();        
         return respuesta;
     }
+
+	@Override
+	public List<Object> listar(Object consultar) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

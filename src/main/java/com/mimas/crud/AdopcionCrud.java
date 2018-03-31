@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.List;
 
 import com.mimas.model.Adopcion;
 import com.mimas.model.Mascota;
@@ -82,6 +83,12 @@ public class AdopcionCrud implements CrudInterface {
 
 	@Override
 	public Object eliminar(Object consultar) throws Exception {
+		return null;
+	}
+
+	@Override
+	public List<Object> listar(Object consultar) throws Exception {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
