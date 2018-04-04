@@ -3,7 +3,6 @@ package com.mimas.model;
 import java.util.Date;
 
 public class Adopcion {
-	//hola laura
 	private String idAdopcion;
 	private String usuario;
 	private Date fecha;
