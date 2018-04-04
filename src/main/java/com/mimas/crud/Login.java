@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 import com.mimas.model.Usuario;
 import com.mimas.util.conexionDB;
@@ -47,6 +48,12 @@ public class Login implements CrudInterface {
     public Object eliminar(Object consultar) throws Exception {
         return null;
     }
+
+	@Override
+	public List<Object> listar() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     
     
