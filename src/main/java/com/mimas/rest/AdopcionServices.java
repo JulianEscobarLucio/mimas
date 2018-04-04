@@ -1,5 +1,6 @@
 package com.mimas.rest;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -84,29 +85,28 @@ public class AdopcionServices {
 
    }
     
-//    @GET
-//    @Path("/list-adopcion") 
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response listarSolicitud() throws JSONException  {
-//        JSONObject jo = new JSONObject();    
-//        JSONArray ja = new JSONArray();
-//        try {  
-//            crud = new AdopcionCrud();
-//            List<Adopcion> listaSolicitud =  crud.listar().stream()
-//                    .map(element->(Adopcion) element)
-//                    .collect(Collectors.toList());;
-//            jo.put("codRespuesta", "200");
-//            jo.put("listaSolicitud", listaSolicitud);                             
-//            ja.put(jo);
-//            return Response.status(200).entity(ja).build();
-//        } catch (Exception e) {
-//            jo.put("codRespuesta", "500");
-//            jo.put("respuesta", "Solicitud no encontrada, error interno");
-//            e.printStackTrace();
-//            return Response.serverError()
-//                    .entity(jo).build();
-//        }
-//    } 
+    @GET
+    @Path("/list-adopcion") 
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listarSolicitud() throws JSONException  {
+        JSONObject jo = new JSONObject();    
+        JSONArray ja = new JSONArray();
+        try {  
+            crud = new AdopcionCrud();
+            List<Adopcion> listaSolicitud = new ArrayList<>();
+            listaSolicitud = (List<Adopcion>)(List<?>) crud.listar();
+            jo.put("codRespuesta", "200");
+            jo.put("listaSolicitud", listaSolicitud);                             
+            ja.put(jo);
+            return Response.status(200).entity(ja).build();
+        } catch (Exception e) {
+            jo.put("codRespuesta", "500");
+            jo.put("respuesta", "Solicitud no encontrada, error interno");
+            e.printStackTrace();
+            return Response.serverError()
+                    .entity(jo).build();
+        }
+    } 
     
     @GET
     @Path("/adopcion") 
