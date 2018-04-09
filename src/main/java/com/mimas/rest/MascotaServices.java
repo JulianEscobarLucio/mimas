@@ -120,7 +120,7 @@ public class MascotaServices {
                 respuestaMascota = (Mascota) crud.consultar(mascota);
                 if(respuestaMascota.getIdResponsable() != null){  
                    jo.put("codRespuesta", "200");
-                   jo.put("respuesta", "Rol consultado");              
+                   jo.put("respuesta", "Mascota consultada");              
                    jo.put("nombre", respuestaMascota.getNombre());
                    jo.put("idResponsable", respuestaMascota.getIdResponsable());
                    jo.put("especie", respuestaMascota.getEspecie());
