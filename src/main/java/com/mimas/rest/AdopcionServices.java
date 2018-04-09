@@ -95,16 +95,17 @@ public class AdopcionServices {
             crud = new AdopcionCrud();
             List<Adopcion> listaSolicitud = new ArrayList<>();
             listaSolicitud = (List<Adopcion>)(List<?>) crud.listar();
-            jo.put("codRespuesta", "200");
-            jo.put("listaSolicitud", listaSolicitud);                             
-            ja.put(jo);
-            return Response.status(200).entity(ja).build();
+//            jo.put("codRespuesta", "200");
+//            jo.put("listaSolicitud", listaSolicitud);                             
+//            ja.put(jo);
+            return Response.status(200).entity(listaSolicitud).build();
         } catch (Exception e) {
             jo.put("codRespuesta", "500");
             jo.put("respuesta", "Solicitud no encontrada, error interno");
             e.printStackTrace();
             return Response.serverError()
                     .entity(jo).build();
+            
         }
     } 
     

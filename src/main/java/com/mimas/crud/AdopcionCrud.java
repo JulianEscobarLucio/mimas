@@ -96,8 +96,10 @@ public class AdopcionCrud implements CrudInterface {
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         respuesta = preparedStatement.executeQuery();
         List<Object> listAdopcion = new ArrayList<Object>();
-        Adopcion miadopcion = new Adopcion();
+        Adopcion miadopcion = null;
         while(respuesta.next()){
+        	miadopcion = new Adopcion();
+        	miadopcion.setIdAdopcion(respuesta.getString("idSolicitud"));
         	miadopcion.setUsuario(respuesta.getString("usuario"));
         	miadopcion.setIdMascota(respuesta.getString("mascota"));
         	miadopcion.setFecha(respuesta.getDate("fecha"));
