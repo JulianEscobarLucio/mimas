@@ -24,7 +24,7 @@ import com.mimas.crud.MascotaCrud;
 import com.mimas.model.Adopcion;
 import com.mimas.model.Evento;
 import com.mimas.model.Mascota;
-
+//
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @ApplicationPath("rest")
