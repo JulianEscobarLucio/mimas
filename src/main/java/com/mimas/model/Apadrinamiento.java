@@ -2,8 +2,9 @@ package com.mimas.model;
 
 import java.util.Date;
 
-public class Adopcion {
-	private String idAdopcion;
+public class Apadrinamiento {
+	
+	private String idApadrinamiento;
 	private String usuario;
 	private Date fecha;
 	private String idMascota;
@@ -11,11 +12,11 @@ public class Adopcion {
 	private String adjunto;
 	private String estadoSolicitud;
 	
-	public String getIdAdopcion() {
-		return idAdopcion;
+	public String getIdApadrinamiento() {
+		return idApadrinamiento;
 	}
-	public void setIdAdopcion(String idAdopcion) {
-		this.idAdopcion = idAdopcion;
+	public void setIdApadrinamiento(String idApadrinamiento) {
+		this.idApadrinamiento = idApadrinamiento;
 	}
 	public String getUsuario() {
 		return usuario;
@@ -56,7 +57,7 @@ public class Adopcion {
 	
 	@Override
 	public String toString() {
-		return "Adopcion [idAdopcion=" + idAdopcion + ", usuario=" + usuario + ", fecha=" + fecha + ", idMascota="
+		return "Adopcion [idApadrinamiento=" + idApadrinamiento + ", usuario=" + usuario + ", fecha=" + fecha + ", idMascota="
 				+ idMascota + ", nombreAdjunto=" + nombreAdjunto + ", adjunto=" + adjunto + ", estadoSolicitud="
 				+ estadoSolicitud + "]";
 	}
