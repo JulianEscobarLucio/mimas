@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.List;
 
-import com.mimas.model.Adopcion;
 import com.mimas.model.Apadrinamiento;
 import com.mimas.util.conexionDB;
 
@@ -47,6 +47,12 @@ public class ApadrinamientoCrud implements CrudInterface {
 
 	@Override
 	public Object eliminar(Object consultar) throws Exception {
+		return null;
+	}
+
+	@Override
+	public List<Object> listar() throws Exception {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
