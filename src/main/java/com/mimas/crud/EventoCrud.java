@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
+
 import com.mimas.model.Evento;
-import com.mimas.model.Mascota;
-import com.mimas.model.Rol;
 import com.mimas.util.conexionDB;
 
 public class EventoCrud implements CrudInterface {
@@ -91,5 +91,11 @@ public class EventoCrud implements CrudInterface {
     public Object eliminar(Object eliminar) throws Exception {
     	return null;
     }
+
+	@Override
+	public List<Object> listar() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
