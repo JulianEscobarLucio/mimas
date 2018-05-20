@@ -21,6 +21,7 @@ import com.mimas.crud.ApadrinamientoCrud;
 import com.mimas.crud.CrudInterface;
 import com.mimas.crud.FundacionCrud;
 import com.mimas.crud.MascotaCrud;
+import com.mimas.crud.MascotaCrudInterface;
 import com.mimas.model.Adopcion;
 import com.mimas.model.Apadrinamiento;
 import com.mimas.model.Mascota;
@@ -33,6 +34,7 @@ public class ApadrinamientoServices {
 	
     private Gson gson ;
     private CrudInterface crud;
+    private MascotaCrudInterface mascotaCrudInterface;
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -53,10 +55,10 @@ public class ApadrinamientoServices {
         JSONObject jo = new JSONObject(); 
         JSONArray ja = new JSONArray();
         try {               
-        	crud = new MascotaCrud();
+        	mascotaCrudInterface = new MascotaCrud();
         	Mascota mascota = new Mascota();
         	mascota.setId(apadrinamiento.getIdMascota());
-        	mascota = (Mascota) crud.consultar(mascota);
+        	mascota = mascotaCrudInterface.consultar(mascota);
         	if (mascota.getId() == null) {
         	  jo.put("codRespuesta", "501");
         	  ja.put(jo);

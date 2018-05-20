@@ -1,6 +1,7 @@
 package com.mimas.rest;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
@@ -13,12 +14,9 @@ import javax.ws.rs.core.Response;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-import com.google.gson.Gson;
-import com.mimas.crud.CrudInterface;
 import com.mimas.crud.MascotaCrud;
-import com.mimas.crud.RolCrud;
+import com.mimas.crud.MascotaCrudInterface;
 import com.mimas.model.Mascota;
-import com.mimas.model.Rol;
 
 
 @Consumes(MediaType.APPLICATION_JSON)
@@ -29,8 +27,7 @@ public class MascotaServices {
     
     
 
-        private Gson gson ;
-        private CrudInterface crud;
+        private MascotaCrudInterface mascotaCrudInterface = new MascotaCrud();;
         
         @GET
         @Produces(MediaType.APPLICATION_JSON)
@@ -50,8 +47,7 @@ public class MascotaServices {
         public Response registrarMascota(Mascota mascota) throws JSONException  {
             JSONObject jo = new JSONObject();    
             try {                      
-                crud = new MascotaCrud ();
-                int respueata = crud.insertar(mascota);
+                int respueata = mascotaCrudInterface.insertar(mascota);
                 if(respueata==1){  
                    jo.put("codRespuesta", "200");
                    jo.put("respuesta", "Mascota registrada");
@@ -83,9 +79,7 @@ public class MascotaServices {
             JSONObject jo = new JSONObject();    
             JSONArray ja = new JSONArray();
             try {    
-                            
-                crud = new MascotaCrud();
-                int respueata = (int) crud.actualizar(mascota);
+                int respueata = mascotaCrudInterface.actualizar(mascota);
                 if(respueata==1){  
                    jo.put("codRespuesta", "200");
                    jo.put("respuesta", "Mascota acutalizadoa");
@@ -115,9 +109,7 @@ public class MascotaServices {
             JSONObject jo = new JSONObject();    
             JSONArray ja = new JSONArray();
             try {    
-                Mascota respuestaMascota = new Mascota();            
-                crud = new MascotaCrud();
-                respuestaMascota = (Mascota) crud.consultar(mascota);
+                Mascota respuestaMascota = mascotaCrudInterface.consultar(mascota);           
                 if(respuestaMascota.getIdResponsable() != null){  
                    jo.put("codRespuesta", "200");
                    jo.put("respuesta", "Mascota consultada");              
@@ -160,9 +152,7 @@ public class MascotaServices {
             JSONObject jo = new JSONObject();    
             JSONArray ja = new JSONArray();
             try {    
-                            
-                crud = new MascotaCrud();
-                int respueata = (int) crud.eliminar(mascota);
+                int respueata = mascotaCrudInterface.eliminar(mascota);
                 if(respueata==1){  
                    jo.put("codRespuesta", "200");
                    jo.put("respuesta", "Mascota eliminada");
@@ -170,8 +160,6 @@ public class MascotaServices {
                    jo.put("codRespuesta", "201");
                    jo.put("respuesta", "Mascota no eliminada");   
                 };          
-                
-               
                 ja.put(jo);
                 return Response.status(200).entity(ja).build();
             } catch (Exception e) {
@@ -182,5 +170,18 @@ public class MascotaServices {
                         .entity(jo).build();
             }
         } 
+        
+        
+        @GET
+        @Path("/listaMascota") 
+        @Produces(MediaType.APPLICATION_JSON)
+        public List<Mascota> listaMascota(){
+			try {
+				return mascotaCrudInterface.listar();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+        }
 
 }

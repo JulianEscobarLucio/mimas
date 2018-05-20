@@ -4,19 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mimas.model.Mascota;
 import com.mimas.model.Rol;
 import com.mimas.util.conexionDB;
 
-public class MascotaCrud implements CrudInterface {
+public class MascotaCrud implements MascotaCrudInterface {
     Connection con;
 
     @Override
-    public int insertar(Object request) throws Exception {
+    public int insertar(Mascota mascota) throws Exception {
         int respuesta = 0;
-        Mascota mascota = (Mascota) request;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "insert into mascota (Id, Nombre, IdResponsable, Especie, Raza, Genero,imagen, Tamaño, "
@@ -45,9 +45,8 @@ public class MascotaCrud implements CrudInterface {
     }
 
     @Override
-    public Object consultar(Object consultar) throws Exception {
+    public Mascota consultar(Mascota mascota) throws Exception {
         ResultSet respuesta;
-        Mascota mascota = (Mascota) consultar;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "Select   Nombre, IdResponsable,Imagen, Especie, Raza, Genero, Tamaño, "
@@ -80,9 +79,8 @@ public class MascotaCrud implements CrudInterface {
     }
 
     @Override
-    public Object actualizar(Object actualizar) throws Exception {
+    public int actualizar(Mascota mascota) throws Exception {
         int respuesta = 0;
-        Mascota mascota = (Mascota) actualizar;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "update mascota set  Nombre = ?, IdResponsable = ? , Especie = ?, Raza = ?, Genero = ?, Imagen= ?, Tamaño= ?, "
@@ -111,9 +109,8 @@ public class MascotaCrud implements CrudInterface {
     }
 
     @Override
-    public Object eliminar(Object eliminar) throws Exception {
+    public int eliminar(Mascota mascota) throws Exception {
         int respuesta = 0;
-        Mascota mascota = (Mascota)  eliminar;         
         con = conexionDB.getConexion(); 
         PreparedStatement preparedStatement = null ;
         String sql = "delete from Mascota  where Id = ?";        
@@ -126,9 +123,35 @@ public class MascotaCrud implements CrudInterface {
     }
 
 	@Override
-	public List<Object> listar() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Mascota> listar() throws Exception {
+		List<Mascota> listMascota = new ArrayList<Mascota>();
+		Mascota mascota = null;
+		con = conexionDB.getConexion();
+		PreparedStatement preparedStatement = con.prepareStatement("select  id, nombre, idresponsable, especie, raza, genero,"
+				+ " imagen, tamaño, estado, caracteristicas, fechan, señales, color, colorojos, personalidad, "
+				+ "estadosalud from mascota", Statement.RETURN_GENERATED_KEYS);  
+		ResultSet resultSet = preparedStatement.executeQuery();
+		while(resultSet.next()) {
+			mascota = new Mascota();
+			mascota.setId(resultSet.getString("id"));
+			mascota.setNombre(resultSet.getString("nombre"));
+			mascota.setIdResponsable(resultSet.getString("idresponsable"));
+			mascota.setEspecie(resultSet.getString("especie"));
+			mascota.setRaza(resultSet.getString("raza"));
+			mascota.setGenero(resultSet.getString("genero"));
+			mascota.setImagen(resultSet.getString("imagen"));
+			mascota.setTamano(resultSet.getString("tamaño"));
+			mascota.setEstado(resultSet.getString("estado"));
+			mascota.setCaracteristicas(resultSet.getString("caracteristicas"));
+			mascota.setFechaN(resultSet.getString("fechan"));
+			mascota.setSenales(resultSet.getString("señales"));
+			mascota.setColor(resultSet.getString("color"));
+			mascota.setColorojos(resultSet.getString("colorojos"));
+			mascota.setPersonalidad(resultSet.getString("personalidad"));
+			mascota.setEstadoSalud(resultSet.getString("estadosalud"));
+			listMascota.add(mascota);
+		}
+		return listMascota;
 	}
 
 }
