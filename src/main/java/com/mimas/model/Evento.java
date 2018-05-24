@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Evento {
 	
-	private String idEvento;
+	private String id;
 	private String nombre;
 	private String usuario;
 	private String fechai;
 	private String fechaf;
 	private String lugar;
 	private String descripcion;
-	private String estado;
 	private String imagen;
+	private String estado;
 
 	
 	
@@ -21,8 +21,13 @@ public class Evento {
 
 
 
-	public String getIdEvento() {
-		return idEvento;
+
+
+
+
+
+	public String getId() {
+		return id;
 	}
 
 
@@ -32,9 +37,19 @@ public class Evento {
 
 
 
-	public void setIdEvento(String idEvento) {
-		this.idEvento = idEvento;
+
+
+
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
+
+
+
+
+
 
 
 
@@ -54,9 +69,19 @@ public class Evento {
 
 
 
+
+
+
+
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+
+
+
+
 
 
 
@@ -76,6 +101,11 @@ public class Evento {
 
 
 
+
+
+
+
+
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
@@ -86,9 +116,20 @@ public class Evento {
 
 
 
+
+
+
+
+
+
 	public String getFechai() {
 		return fechai;
 	}
+
+
+
+
+
 
 
 
@@ -108,9 +149,19 @@ public class Evento {
 
 
 
+
+
+
+
+
 	public String getFechaf() {
 		return fechaf;
 	}
+
+
+
+
+
 
 
 
@@ -130,9 +181,19 @@ public class Evento {
 
 
 
+
+
+
+
+
 	public String getLugar() {
 		return lugar;
 	}
+
+
+
+
+
 
 
 
@@ -152,9 +213,19 @@ public class Evento {
 
 
 
+
+
+
+
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
+
+
+
+
 
 
 
@@ -174,23 +245,6 @@ public class Evento {
 
 
 
-	public String getEstado() {
-		return estado;
-	}
-
-
-
-
-
-
-
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	//
-
 
 
 
@@ -199,6 +253,11 @@ public class Evento {
 	public String getImagen() {
 		return imagen;
 	}
+
+
+
+
+
 
 
 
@@ -218,9 +277,46 @@ public class Evento {
 
 
 
+
+
+
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "Evento [idEvento=" + idEvento + ", usuario=" + usuario + ",  fechai="
+		return "Evento [Id=" + id + ", usuario=" + usuario + ",  fechai="
 				+ fechai + ", fechaf=" + fechaf + ", lugar=" + lugar + ", descripcion="
 				+ descripcion + ", estado=" + estado + ", imagen=" + imagen + "]";
 	}
