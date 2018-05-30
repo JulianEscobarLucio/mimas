@@ -40,7 +40,11 @@ public class MascotaCrud implements MascotaCrudInterface {
         preparedStatement.setString(14, mascota.getColorojos());
         preparedStatement.setString(15, mascota.getPersonalidad());
         preparedStatement.setString(16, mascota.getEstadoSalud());
-        respuesta = preparedStatement .executeUpdate();
+        preparedStatement .executeUpdate();
+        ResultSet genKeysRs = preparedStatement.getGeneratedKeys();
+        genKeysRs.next();
+        respuesta  = genKeysRs.getInt(1);
+        genKeysRs.close();
         return respuesta;
     }
 

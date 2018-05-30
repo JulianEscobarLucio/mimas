@@ -56,6 +56,7 @@ public class SecurityServices {
                 jo.put("respuesta", "Usuario valido");
                 jo.put("nombre1", miUsuario.getNombre1());
                 jo.put("apellido1", miUsuario.getApellido1());
+                jo.put("rol", miUsuario.getRol());
             } else {
                 jo.put("codRespuesta", "201");
                 jo.put("respuesta", "Usuario no valido");

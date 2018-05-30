@@ -48,8 +48,9 @@ public class MascotaServices {
             JSONObject jo = new JSONObject();    
             try {                      
                 int respueata = mascotaCrudInterface.insertar(mascota);
-                if(respueata==1){  
+                if(respueata > 0){  
                    jo.put("codRespuesta", "200");
+                   jo.put("idMascota", respueata);
                    jo.put("respuesta", "Mascota registrada");
                 }else{
                    jo.put("codRespuesta", "200");
@@ -87,8 +88,6 @@ public class MascotaServices {
                    jo.put("codRespuesta", "201");
                    jo.put("respuesta", "Mascota no actualizada");   
                 };          
-                
-               
                 ja.put(jo);
                 return Response.status(200).entity(ja).build();
             } catch (Exception e) {
