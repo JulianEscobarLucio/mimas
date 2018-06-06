@@ -21,7 +21,7 @@ public class EventoCrud implements EventoCrudInterface {
         PreparedStatement preparedStatement = null ;
         String sql = "insert into evento (Id, Nombre, IdResponsable, FechaI, FechaF, Lugar, Descripcion, Estado, imagen)"
                 + " values (?,?,?,?,?,?,?,?,?) ";
-        
+        //events 
         preparedStatement  = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, evento.getId());
         preparedStatement.setString(2, evento.getNombre());
