@@ -13,7 +13,7 @@ import com.mimas.util.conexionDB;
 
 public class EventoCrud implements EventoCrudInterface {
     Connection con;
-//eventos
+    
     @Override
     public int insertar(Evento evento) throws Exception {
         int respuesta = 0;
