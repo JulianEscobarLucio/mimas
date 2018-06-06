@@ -114,9 +114,9 @@ public class EventoServices {
                    jo.put("codRespuesta", "200");
                    jo.put("respuesta", "Evento consultada");              
                    jo.put("nombre", respuestaEvento.getNombre());
-                   jo.put("usuario", respuestaEvento.getUsuario());
-                   jo.put("fechai", respuestaEvento.getFechai());
-                   jo.put("fechaf", respuestaEvento.getFechaf());
+                   jo.put("idResponsable", respuestaEvento.getIdResponsable());
+                   jo.put("fechaI", respuestaEvento.getFechaI());
+                   jo.put("fechaF", respuestaEvento.getFechaF());
                    jo.put("lugar", respuestaEvento.getLugar());
                    jo.put("descripcion", respuestaEvento.getDescripcion());                
                    jo.put("estado", respuestaEvento.getEstado());                 
